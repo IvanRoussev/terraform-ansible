@@ -1,0 +1,44 @@
+---
+- name: Setup static site with Ansible
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install and configure Nginx
+      apt:
+        name: nginx
+        state: latest
+      notify: restart nginx
+
+    - name: Install pip
+      apt:
+        name: pip
+        state: latest
+
+    - name: Install PyMysql
+      pip:
+        name: pymysql
+        state: latest
+
+    - name: Create HTML file
+      copy:
+        src: /home/ivan/documents/assignment3/ansible_a3/index.html
+        dest: /var/www/html/index.html
+
+    - name: Create database user with name 'ivan' and password 'Password' with all database privileges
+      mysql_user:
+        name: ivan
+        password: Password
+        priv: 'acit4640rds.*:ALL'
+        host: '%'
+        #login_host: Chnage depending on rds endpoint
+        login_host: terraform-20230320040104431200000001.cjh4o3upmoqu.us-west-2.rds.amazonaws.com
+        login_user: admin
+        login_password: Password
+        state: present
+
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
