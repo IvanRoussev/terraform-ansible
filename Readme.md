@@ -1,5 +1,6 @@
 VPC resource map
 ![image](https://user-images.githubusercontent.com/50000851/226459643-79998f48-a3d1-4ffc-bd90-94d0ec2211ee.png)
+![image](https://user-images.githubusercontent.com/50000851/226459931-8bae5f63-580c-42a7-8269-e7ea83e20051.png)
 
 
 Terraform will create a aws infastructure with the following
