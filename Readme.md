@@ -1,10 +1,11 @@
+VPC resource map
+![image](https://user-images.githubusercontent.com/50000851/226459643-79998f48-a3d1-4ffc-bd90-94d0ec2211ee.png)
+
+
 Terraform will create a aws infastructure with the following
-![image](https://user-images.githubusercontent.com/50000851/226453403-b9412932-b38c-4ae5-8a6c-6d080db0308f.png)
 
 This infastructure will then be used by a ansible playbook that can start up a server to run a static web page using nginx. 
 The playbook will aslo create a user called ivan with a password and priviledges to only the database created by the terraform script.
-
-
 
     A VPC
 
